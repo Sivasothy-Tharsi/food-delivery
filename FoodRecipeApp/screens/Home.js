@@ -23,16 +23,18 @@ const Home = () => {
 
   const [category, setCategory] = useState('All');
 
+  
+
   useEffect(() => {
-    filterProductsByCategory(category); // Call filterProductsByCategory when category changes
+    filterProductsByCategory(category); 
   }, [category]); 
 
   const filterProductsByCategory = (category) => {
     if (category === 'All') {
-      setProducts(dummyData.products); // Show all products if category is 'All'
+      setProducts(dummyData.products);
     } else {
       const filteredProducts = dummyData.products.filter(product => product.category === category);
-      setProducts(filteredProducts); // Filter products based on category
+      setProducts(filteredProducts); 
     }
   };
   function renderHeaderBox() {
@@ -133,10 +135,12 @@ const Home = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      {renderHeaderBox()}
+ 
       <FlatList
         data={products}
         numColumns={3}
-        columnWrapperStyle={{gap:10, justifyContent: 'center'}}
+        columnWrapperStyle={{gap:10, justifyContent: 'flex-start', width:'100%', paddingHorizontal: 20}}
         keyExtractor={(item) => item.id.toString()}
         keyboardDismissMode='on-drag'
         showsVerticalScrollIndicator={false}
@@ -145,14 +149,14 @@ const Home = () => {
         }}
         ListHeaderComponent={
           <View>
-            {renderHeaderBox()}
+ 
             <View style={{ marginBottom: 20 }} /> 
             {renderSearchBar()}
             {renderTrendingSection()}
             {renderCategory()}
           </View>
         }
-
+        
         renderItem={({item, index}) => {
           return(
             <Food 
@@ -190,7 +194,7 @@ const styles = StyleSheet.create({
     margin: SIZES.radius
   },
   headerBox: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: COLORS.darkLime,
     width: '100%',
     height: height / 4,

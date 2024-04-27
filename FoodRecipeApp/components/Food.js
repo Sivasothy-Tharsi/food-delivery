@@ -1,20 +1,25 @@
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { SIZES, COLORS, FONTS } from '../constants';
+import {Rating} from 'react-native-stock-star-rating';
+
+const windowWidth = Dimensions.get('window').width;
+const imageSize = (windowWidth-60)/3.5;
 
 const Food = ({ recipeItem, onPress }) => {
     
     return (
         <TouchableOpacity style={styles.containerBtn} onPress={onPress}>
             <View style={styles.outerContainer}>
-                <View style={styles.innerContainer}>
-                    <Image style={styles.innerContainer} source={recipeItem.image}/>
-                </View>
+                    <Image style={styles.innerContainer} source={recipeItem.image}/>               
             </View>
             <Text style={{color:COLORS.black, alignSelf: 'center'}}>{recipeItem.name}</Text>
             <View style={styles.detail}>
-                <Text>{recipeItem.price}</Text>
+                <Text>{recipeItem.price.small} (S)</Text> 
+            </View>
+            <View style={styles.rating}>
                 <Text>{recipeItem.rating}</Text>
+                <Rating maxStars={5} stars={recipeItem.rating} size={10}/>
             </View>
         </TouchableOpacity>
     );
@@ -25,16 +30,17 @@ export default Food;
 const styles = StyleSheet.create({
    containerBtn: {
         // flex: 1,
-        height: 150,
+        // width: windowWidth/3,
         marginTop: 15,
-        backgroundColor: COLORS.white2,
+        backgroundColor: COLORS.white,
         elevation: 1,
-        borderRadius: 10
+        borderRadius: 10,
+        // marginHorizontal: 10
         
    },
    outerContainer: {
-    width: 100,
-    height: 100,
+    width: windowWidth/3.5, //100
+    height:windowWidth/3.5,  //100
     backgroundColor: COLORS.white,
     elevation:1,
     alignItems:'center',
@@ -42,8 +48,8 @@ const styles = StyleSheet.create({
     borderRadius: 10
 },
 innerContainer: {
-    width: 80,
-    height: 80,
+    width: imageSize,   //80
+    height: imageSize,   //80
     backgroundColor: COLORS.black,
     
 },
@@ -51,6 +57,11 @@ detail: {
     flexDirection: 'row',
     // position: 'relative',
     justifyContent: 'space-evenly'
+},
+rating: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 5
 }
 
 });

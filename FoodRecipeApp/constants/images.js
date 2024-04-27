@@ -1,15 +1,18 @@
 const burger = require("../assets/images/recipes/Burger.png")
 const chickenBurger = require("../assets/images/recipes/ChickenBurger.png")
-const dhosai = require("../assets/images/recipes/Dhosai.png")
-const pizza = require("../assets/images/recipes/Pizza.png")
+const dhosai = require("../assets/images/recipes/dhosai.jpg")
+const pizza = require("../assets/images/recipes/pizza.jpg")
 const pizzaPiece = require("../assets/images/recipes/PizzaPices.png")
 const ribbonSandwitch = require("../assets/images/recipes/RibbonSandwitch.png")
-const sandwitch = require("../assets/images/recipes/Sandwitch.png")
+const sandwitch = require("../assets/images/recipes/sandwich.jpg")
 const seafoodSoup = require("../assets/images/recipes/SeafoodSoup.png")
 const spicyPasta = require("../assets/images/recipes/SpicyPasta.png")
 const submarine = require("../assets/images/recipes/Submarine.png")
 const submarineSnadwitch = require("../assets/images/recipes/SubmarineSandwitch.png")
 const noodless = require('../assets/images/recipes/noodles.png')
+
+const burger1 = require("../assets/images/recipes/Burger1.jpg")
+const burger2 = require("../assets/images/recipes/Burger2.jpg")
 
 
 const UserProfile1 = require("../assets/images/dummy_profiles/profile-pic-1.png");
@@ -40,6 +43,8 @@ export default {
     submarine,
     submarineSnadwitch,
     noodless,
+    burger1,
+    burger2,
 
     UserProfile1,
     UserProfile2,

@@ -6,12 +6,17 @@ const heart = require("../assets/icons/Heart.png")
 const home = require("../assets/icons/Home.png")
 const notification = require("../assets/icons/Notification.png")
 const shoppingcart = require("../assets/icons/ShoppingCart.png")
-
+const delivery = require('../assets/icons/delivery.png')
+const location = require('../assets/icons/location.png')
+const time = require('../assets/icons/time.png')
+const knife = require('../assets/icons/knife.png')
 const home1 = require("../assets/icons/Home1.png")
 const notification1 = require("../assets/icons/Notification1.png")
 const shoppingcart1 = require("../assets/icons/SoppingCart1.png")
 const favourite1 = require("../assets/icons/Favorite1.png")
 const search = require('../assets/icons/search.png')
+const close = require('../assets/icons/close.png')
+const cupon = require('../assets/icons/cupon.png')
 
 const starFilled = require('../assets/icons/Starfilled.png')
 
@@ -29,14 +34,18 @@ export default {
     home,
     notification,
     shoppingcart,
-
+    delivery,
+    location,
+    time,
+    knife,
+    close,
     home1,
     notification1,
     shoppingcart1,
     favourite1,
     search,
     starFilled,
-
+    cupon,
     burger,
     pizza,
     submarine,

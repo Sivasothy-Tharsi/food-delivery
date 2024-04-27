@@ -17,14 +17,15 @@ const {width, height} = Dimensions.get("window");
     lightGray: "#F5F6FB",
     lightGray2: "#757575",
     lightGray3: "#D3D3D3",
-
+    darkgray: "#3B3F4B",
     glass:"#CBEFEC",
     
     box1: "#FCE8FF",
     box2: "#F1FFDB",
     box3: "#76D7C4",
-
     boxColor: "#210B61",
+
+    btn: "#B98A4E",
     
     transparentBlack1: "rgba(2, 2, 2, 0.1)",
     transparentBlack3: "rgba(2, 2, 2, 0.3)",

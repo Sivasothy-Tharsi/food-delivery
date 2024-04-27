@@ -6,22 +6,34 @@ import { COLORS, SIZES } from '../constants'
 
 
 const Catergory = ({ containerStyle, catecoryItem, onPress }) => {
-    
+
     return (
-        <TouchableOpacity
-            style={[styles.containerbtn, containerStyle]}
-        onPress={onPress}
-        >
-            <View style={styles.iconContainer}>
-                <Image
-                    style={styles.imgIcon}
-                    source={catecoryItem.icon} />
-                <Text>{catecoryItem.name}</Text>
-            </View>
-
-
-        </TouchableOpacity>
-
+        
+        <View>
+            {catecoryItem.id === "all" ? (
+                <TouchableOpacity
+                    style={[styles.containerbtn, containerStyle]}
+                    onPress={onPress}
+                >
+                    <View style={[styles.iconContainer,{paddingHorizontal:20}]}>
+                        <Text>{catecoryItem.name}</Text>
+                    </View>
+                </TouchableOpacity> )
+            :(
+                <TouchableOpacity
+                    style={[styles.containerbtn, containerStyle]}
+                    onPress={onPress}
+                >
+                    <View style={styles.iconContainer}>
+                        <Image
+                            style={styles.imgIcon}
+                            source={catecoryItem.icon} />
+                        <Text>{catecoryItem.name}</Text>
+                    </View>
+                </TouchableOpacity>)
+            }
+        </View>
+        
     )
 }
 
@@ -35,9 +47,9 @@ const styles = StyleSheet.create({
         marginRight: 20,
         borderRadius: 50,
         justifyContent: 'center',
-        
 
-       
+
+
     },
     imgIcon: {
         height: 30,
