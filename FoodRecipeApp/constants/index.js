@@ -9,5 +9,6 @@ export {
     COLORS,
     FONTS,
     SIZES,
+    appThem,
     dummyData,
 }

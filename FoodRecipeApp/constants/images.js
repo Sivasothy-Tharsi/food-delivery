@@ -10,7 +10,6 @@ const spicyPasta = require("../assets/images/recipes/SpicyPasta.png")
 const submarine = require("../assets/images/recipes/Submarine.png")
 const submarineSnadwitch = require("../assets/images/recipes/SubmarineSandwitch.png")
 const noodless = require('../assets/images/recipes/noodles.png')
-
 const burger1 = require("../assets/images/recipes/Burger1.jpg")
 const burger2 = require("../assets/images/recipes/Burger2.jpg")
 

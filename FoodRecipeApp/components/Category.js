@@ -1,11 +1,11 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { COLORS, SIZES } from '../constants'
+import { SIZES } from '../constants'
 
 
 
 
-const Catergory = ({ containerStyle, catecoryItem, onPress }) => {
+const Category = ({ containerStyle, catecoryItem, onPress }) => {
 
     return (
         
@@ -37,7 +37,7 @@ const Catergory = ({ containerStyle, catecoryItem, onPress }) => {
     )
 }
 
-export default Catergory
+export default Category
 
 const styles = StyleSheet.create({
     containerbtn: {
@@ -47,9 +47,6 @@ const styles = StyleSheet.create({
         marginRight: 20,
         borderRadius: 50,
         justifyContent: 'center',
-
-
-
     },
     imgIcon: {
         height: 30,

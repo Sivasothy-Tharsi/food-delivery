@@ -17,7 +17,6 @@ const favourite1 = require("../assets/icons/Favorite1.png")
 const search = require('../assets/icons/search.png')
 const close = require('../assets/icons/close.png')
 const cupon = require('../assets/icons/cupon.png')
-
 const starFilled = require('../assets/icons/Starfilled.png')
 
 

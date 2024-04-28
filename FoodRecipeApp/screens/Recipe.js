@@ -1,11 +1,12 @@
 import {
-  StyleSheet, 
-  Text, View, 
-  Animated, Image, 
-  TouchableOpacity, 
-  FlatList, 
-  KeyboardAvoidingView } 
-from 'react-native'
+  StyleSheet,
+  Text, View,
+  Animated, Image,
+  TouchableOpacity,
+  FlatList,
+  KeyboardAvoidingView
+}
+  from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import { COLORS, FONTS, SIZES, dummyData, icons } from '../constants'
 import { CustomButton, FoodInfo, RelatedFood, Review } from '../components';
@@ -21,11 +22,8 @@ const Recipe = ({ navigation, route }) => {
   const [relatedFoods, setRelatedFoods] = useState([]);
   const [category, setCategory] = useState(null);
   const [selectedFood, setSelectedFood] = useState(null);
-  const scrollY = useRef(new Animated.Value(0)).current;
 
   
-
-
   useEffect(() => {
     let { recipe } = route.params;
     setSelectedFood(recipe)
@@ -34,12 +32,14 @@ const Recipe = ({ navigation, route }) => {
   }, [category, selectedFood]);
 
   const filterProductsByCategory = (category) => {
-    const filteredProducts = dummyData.products.filter(product => product.category === category);
-    const filteredProductsExcludingSelected = filteredProducts.filter(product => product.id !== selectedFood?.id);
+    const filteredProducts = dummyData.products.filter
+      (product => product.category === category);
+    const filteredProductsExcludingSelected = filteredProducts.filter
+      (product => product.id !== selectedFood?.id);
     setRelatedFoods(filteredProductsExcludingSelected);
   }
 
-  
+
 
   function renderHeaderBar() {
     return (
@@ -111,77 +111,81 @@ const Recipe = ({ navigation, route }) => {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={{ flex: 1 }}
       >
-      <View>
-        {renderHeaderBar()}
-        <FlatList
-          data={relatedFoods}
-          keyExtractor={(item) => item.id.toString()}
-          numColumns={2}
-          columnWrapperStyle={{ gap: 10, justifyContent: 'center' }}
-          keyboardDismissMode='on-drag'
-          showsVerticalScrollIndicator={false}
-          ListHeaderComponent={
-            <View>
-              {renderHeaderImage()}
-              <FoodInfo selectedItem={selectedFood} />
-              {renderReviews()}
-              {relatedFoods.length > 0 ? <Text style={styles.moreToLoveText}>More to love</Text> : null}
-            </View>
-          }
-          ListFooterComponent={
-            <View style={{ marginBottom: 100 }}></View>
-          }
-          renderItem={({ item, index }) => {
-            return (
-              <RelatedFood
-                key={index}
-                relatedItem={item}
-                containerStyle={{ margin: 10, elevation: 0.5 }}
-                onPress={() => navigation.navigate("Recipe", { recipe: item })}
-              />
-            )
-          }}
-        />
-        <BottomSheet
-          ref={bottomSheetRef}
-          index={0}
-          snapPoints={snapPoints}
-          backgroundComponent={({ style }) => (
-            <View style={[styles.bottomSheetBackground, style]} />
-          )}
-          handleComponent={() => (
-            <TouchableOpacity onPress={onPressHandle}>
-              <Image source={icons.knife} style={styles.handleImage} />
-            </TouchableOpacity>
-          )}
+        <View>
+          {renderHeaderBar()}
+          <FlatList
+            data={relatedFoods}
+            keyExtractor={(item) => item.id.toString()}
+            numColumns={2}
+            columnWrapperStyle={{ gap: 10, justifyContent: 'center' }}
+            keyboardDismissMode='on-drag'
+            showsVerticalScrollIndicator={false}
+            ListHeaderComponent={
+              <View>
+                {renderHeaderImage()}
+                <FoodInfo selectedItem={selectedFood} />
+                {renderReviews()}
+                {relatedFoods.length > 0 ?
+                  <Text style={styles.moreToLoveText}>
+                    More to love
+                  </Text> : null
+                }
+              </View>
+            }
+            ListFooterComponent={
+              <View style={{ marginBottom: 100 }}></View>
+            }
+            renderItem={({ item, index }) => {
+              return (
+                <RelatedFood
+                  key={index}
+                  relatedItem={item}
+                  containerStyle={styles.relatedfoodContainer}
+                  onPress={() => navigation.navigate("Recipe", { recipe: item })}
+                />
+              )
+            }}
+          />
+          <BottomSheet
+            ref={bottomSheetRef}
+            index={0}
+            snapPoints={snapPoints}
+            backgroundComponent={({ style }) => (
+              <View style={[styles.bottomSheetBackground, style]} />
+            )}
+            handleComponent={() => (
+              <TouchableOpacity onPress={onPressHandle}>
+                <Image source={icons.knife} style={styles.handleImage} />
+              </TouchableOpacity>
+            )}
 
-        >
-          <View style={styles.bottomSheetContent}>
-            <TouchableOpacity onPress={onPressIcon}>
-              <Image source={icons.close} style={styles.closeIcon} />
-            </TouchableOpacity>
-            <Image source={icons.cupon} style={styles.cuponImg} />
-            <Text style={styles.cuponTxt}>
-              “Hey there, congratulations!
-              You’ve just received a discount coupon.
-              To redeem your savings,
-              simply scan the QR code on the coupon and enter the code that appears.
-              Enjoy your discounted experience with us!”
-            </Text>
-            <TextInput style={styles.txtInput} 
-            placeholder='Enter your cupon code'
-            keyboardType='numeric'
-            onChangeText={()=>bottomSheetRef.current?.snapToIndex(4)}
-            />
-            <CustomButton
-              buttonTxt="Claim It"
-              colors={[COLORS.btn, COLORS.transparentGray]}
-              containerStyle={styles.buttonContainerStyle}
-              onPress={() => console.log("claim button pressed")}
-            />
-          </View>
-        </BottomSheet>
-      </View>
+          >
+            <View style={styles.bottomSheetContent}>
+              <TouchableOpacity onPress={onPressIcon}>
+                <Image source={icons.close} style={styles.closeIcon} />
+              </TouchableOpacity>
+              <Image source={icons.cupon} style={styles.cuponImg} />
+              <Text style={styles.cuponTxt}>
+                “Hey there, congratulations!
+                You’ve just received a discount coupon.
+                To redeem your savings,
+                simply scan the QR code on the coupon and enter the code that appears.
+                Enjoy your discounted experience with us!”
+              </Text>
+              <TextInput style={styles.txtInput}
+                placeholder='Enter your cupon code'
+                keyboardType='numeric'
+                onChangeText={() => bottomSheetRef.current?.snapToIndex(4)}
+              />
+              <CustomButton
+                buttonTxt="Claim It"
+                colors={[COLORS.btn, COLORS.transparentGray]}
+                containerStyle={styles.buttonContainerStyle}
+                onPress={() => console.log("claim button pressed")}
+              />
+            </View>
+          </BottomSheet>
+        </View>
       </KeyboardAvoidingView>
     </GestureHandlerRootView>
   )
@@ -285,6 +289,10 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     backgroundColor: COLORS.lightGray,
     textAlign: 'center'
+  },
+  relatedfoodContainer: {
+    margin: 10,
+    elevation: 0.5
   }
 });
 

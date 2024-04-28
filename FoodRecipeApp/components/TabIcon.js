@@ -12,7 +12,7 @@ const TabIcon = ({focused, icon}) => {
       />
       {
         focused && (
-            // <View style={styles.focusedLine}/>
+          
             <View style={styles.focusedCircle}/>
         )
       }

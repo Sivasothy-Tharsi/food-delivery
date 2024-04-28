@@ -1,8 +1,25 @@
-import { Alert, Dimensions, FlatList, Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { 
+  Dimensions, 
+  FlatList, 
+  Image, 
+  SafeAreaView, 
+  StyleSheet, 
+  Text, 
+  TextInput, 
+  TouchableOpacity, 
+  View 
+} from 'react-native'
+import { 
+  COLORS, 
+  FONTS, 
+  SIZES, 
+  dummyData, 
+  icons, 
+  images 
+} from '../constants'
+
 import React, { useEffect, useState } from 'react'
-import { COLORS, FONTS, SIZES, dummyData, icons, images } from '../constants'
-import { TrendingOffer } from '../components'
-import Catergory from '../components/Catergory'
+import { Category, TrendingOffer } from '../components'
 import Food from '../components/Food'
 import { useNavigation } from '@react-navigation/native'
 
@@ -76,10 +93,10 @@ const Home = () => {
     )
   }
 
-  function renderTrendingSection() {
+  function renderOfferSection() {
     return(
-      <View style={styles.renderTrendingSection}> 
-          <Text style={styles.trendingSectionTxt}>
+      <View style={styles.renderOfferSection}> 
+          <Text style={styles.offerSectionTxt}>
             Today offers
           </Text>
           <FlatList data={dummyData.offers}
@@ -106,8 +123,8 @@ const Home = () => {
 
   function renderCategory() {
     return(
-      <View style={styles.renderTrendingSection}> 
-          <Text style={styles.trendingSectionTxt}>
+      <View style={styles.renderOfferSection}> 
+          <Text style={styles.offerSectionTxt}>
             Categories
           </Text>
           <FlatList data={categoriesWithAll}
@@ -116,10 +133,11 @@ const Home = () => {
           keyExtractor={(item) => item.id.toString()}
           renderItem={({item, index}) => {
             return(
-              <Catergory 
+              <Category 
               key={index}
               catecoryItem={item}
-              containerStyle={{marginLeft: index===0? SIZES.padding: 0, backgroundColor: item.name===category? "#BBF5D5": "#D9D9D9"}}
+              containerStyle={{marginLeft: index===0? SIZES.padding: 0, 
+                backgroundColor: item.name===category? "#BBF5D5": "#D9D9D9"}}
               onPress={()=>setCategory(item.name)}
               />
           
@@ -141,7 +159,7 @@ const Home = () => {
       <FlatList
         data={products}
         numColumns={3}
-        columnWrapperStyle={{gap:10, justifyContent: 'flex-start', width:'100%', paddingHorizontal: 20}}
+        columnWrapperStyle={styles.columnWrapperStyle}
         keyExtractor={(item) => item.id.toString()}
         keyboardDismissMode='on-drag'
         showsVerticalScrollIndicator={false}
@@ -153,7 +171,7 @@ const Home = () => {
  
             <View style={{ marginBottom: 20 }} /> 
             {renderSearchBar()}
-            {renderTrendingSection()}
+            {renderOfferSection()}
             {renderCategory()}
           </View>
         }
@@ -260,13 +278,19 @@ const styles = StyleSheet.create({
     ...FONTS.body3,
     flex: 1
   },
-  renderTrendingSection: {
+  renderOfferSection: {
     marginTop: SIZES.padding,
   },
-  trendingSectionTxt: {
+  offerSectionTxt: {
     marginHorizontal: SIZES.padding,
     color: COLORS.black,
     ...FONTS.h2
   },
+  columnWrapperStyle: {
+    gap:10, 
+    justifyContent: 'flex-start', 
+    width:'100%', 
+    paddingHorizontal: 20
+  }
 
 })

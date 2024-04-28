@@ -4,6 +4,7 @@ import FoodInfo from "./FoodInfo";
 import Review from "./Review";
 import CustomButton from "./CustomButton";
 import RelatedFood from "./RelatedFood";
+import Category from "./Category";
 
 export {
  
@@ -13,5 +14,6 @@ export {
   Review,
   CustomButton,
   RelatedFood,
+  Category,
  
 }
