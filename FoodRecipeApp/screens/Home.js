@@ -1,4 +1,4 @@
-import { Dimensions, FlatList, Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Alert, Dimensions, FlatList, Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { COLORS, FONTS, SIZES, dummyData, icons, images } from '../constants'
 import { TrendingOffer } from '../components'
@@ -23,7 +23,8 @@ const Home = () => {
 
   const [category, setCategory] = useState('All');
 
-  
+  const [query, setQuery] = useState('');
+ 
 
   useEffect(() => {
     filterProductsByCategory(category); 
@@ -118,7 +119,7 @@ const Home = () => {
               <Catergory 
               key={index}
               catecoryItem={item}
-              containerStyle={{marginLeft: index===0? SIZES.padding: 0}}
+              containerStyle={{marginLeft: index===0? SIZES.padding: 0, backgroundColor: item.name===category? "#BBF5D5": "#D9D9D9"}}
               onPress={()=>setCategory(item.name)}
               />
           
@@ -269,79 +270,3 @@ const styles = StyleSheet.create({
   },
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // function renderCategory() {
-  //   return(
-  //     <View style={styles.renderTrendingSection}> 
-  //         <Text style={styles.trendingSectionTxt}>
-  //           Categories
-  //         </Text>
-  //         <FlatList data={categoriesWithAll}
-  //         horizontal
-  //         showsHorizontalScrollIndicator={false}
-  //         keyExtractor={(item) => item.id.toString()}
-  //         renderItem={({item, index}) => {
-  //           return(
-  //             <Catergory 
-  //             key={index}
-  //             catecoryItem={item}
-  //             containerStyle={{marginLeft: index===0? SIZES.padding: 0}}
-  //             onPress={()=> navigation.navigate("Category", {recipe: item})}
-  //             />
-          
-             
-  //           )
-  //         }}
-  //         />
-  //     </View>
-    
-  //   )
-  // }
-
-
-   // function renderCategory() {
-  //   return(
-  //     <View style={styles.renderTrendingSection}> 
-  //         <Text style={styles.trendingSectionTxt}>
-  //           Categories
-  //         </Text>
-  //         <FlatList data={dummyData.categories}
-  //         horizontal
-  //         showsHorizontalScrollIndicator={false}
-  //         keyExtractor={(item) => item.id.toString()}
-  //         renderItem={({item, index}) => {
-  //           return(
-  //             <Catergory 
-  //             key={index}
-  //             catecoryItem={item}
-  //             containerStyle={{marginLeft: index===0? SIZES.padding: 0}}
-  //             onPress={()=>setCategory(item.name)}
-  //             />
-          
-             
-  //           )
-  //         }}
-  //         />
-  //     </View>
-    
-  //   )
-  // }

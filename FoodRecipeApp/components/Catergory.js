@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: 'auto',
         height: 40,
-        backgroundColor: '#D9D9D9',
         opacity: 0.8,
         borderRadius: 10,
         paddingHorizontal: SIZES.base

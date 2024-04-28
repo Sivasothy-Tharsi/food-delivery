@@ -14,11 +14,12 @@ const {width, height} = Dimensions.get("window");
     blue: "#4096FE",
     gray: "#877777",
     gray2: "#F8F8F8",
+    gray3: "D9D9D9",
     lightGray: "#F5F6FB",
     lightGray2: "#757575",
     lightGray3: "#D3D3D3",
     darkgray: "#3B3F4B",
-    glass:"#CBEFEC",
+    glass: "#CBEFEC",
     
     box1: "#FCE8FF",
     box2: "#F1FFDB",
@@ -26,6 +27,7 @@ const {width, height} = Dimensions.get("window");
     boxColor: "#210B61",
 
     btn: "#B98A4E",
+    catBtnOn: "#BBF5D5",
     
     transparentBlack1: "rgba(2, 2, 2, 0.1)",
     transparentBlack3: "rgba(2, 2, 2, 0.3)",

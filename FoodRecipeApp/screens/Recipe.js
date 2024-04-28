@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Animated, Image, TouchableOpacity, ScrollView, FlatList, Dimensions, KeyboardAvoidingView } from 'react-native'
+import {
+  StyleSheet, 
+  Text, View, 
+  Animated, Image, 
+  TouchableOpacity, 
+  FlatList, 
+  KeyboardAvoidingView } 
+from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import { COLORS, FONTS, SIZES, dummyData, icons } from '../constants'
 import { CustomButton, FoodInfo, RelatedFood, Review } from '../components';
@@ -16,6 +23,9 @@ const Recipe = ({ navigation, route }) => {
   const [selectedFood, setSelectedFood] = useState(null);
   const scrollY = useRef(new Animated.Value(0)).current;
 
+  
+
+
   useEffect(() => {
     let { recipe } = route.params;
     setSelectedFood(recipe)
@@ -28,6 +38,8 @@ const Recipe = ({ navigation, route }) => {
     const filteredProductsExcludingSelected = filteredProducts.filter(product => product.id !== selectedFood?.id);
     setRelatedFoods(filteredProductsExcludingSelected);
   }
+
+  
 
   function renderHeaderBar() {
     return (
