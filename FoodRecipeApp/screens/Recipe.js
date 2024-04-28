@@ -16,7 +16,7 @@ import BottomSheet from '@gorhom/bottom-sheet'
 const HEADER_HEIGHT = 300;
 const Recipe = ({ navigation, route }) => {
 
-  const snapPoints = ['10%', '20%', '50%', '60%', '100%'];
+  const snapPoints = ['10%', '20%', '50%', '60%', '70%'];
   const bottomSheetRef = useRef(null);
 
   const [relatedFoods, setRelatedFoods] = useState([]);
